@@ -1,13 +1,14 @@
+using Cybertek.Entities;
+using Cybertek.Entities.UnitOfWork;
+using Cybertek.Entities.UnitOfWork.Interfaces;
+using Cybertek.MVC.Helper;
+using Cybertek.MVC.Helper.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cybertek.MVC
 {
@@ -23,7 +24,16 @@ namespace Cybertek.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryHelper, CategoryHelper>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddDbContext<CybertekDbContext>(item =>
+                    item.UseSqlServer(Configuration.GetConnectionString("CybertekDbConnection")));
+
+            services.AddMvc();
             services.AddControllersWithViews();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

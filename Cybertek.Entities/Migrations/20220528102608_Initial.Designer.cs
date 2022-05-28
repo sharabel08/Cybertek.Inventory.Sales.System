@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cybertek.Entities.Migrations
 {
     [DbContext(typeof(CybertekDbContext))]
-    [Migration("20220528014833_InitialMgration")]
-    partial class InitialMgration
+    [Migration("20220528102608_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
