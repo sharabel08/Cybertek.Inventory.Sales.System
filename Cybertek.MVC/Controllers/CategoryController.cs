@@ -52,9 +52,5 @@ namespace Cybertek.MVC.Controllers
         {
             return RedirectToAction("Category", new { search = model.SearchText });
         }
-
-
-
-
     }
 }

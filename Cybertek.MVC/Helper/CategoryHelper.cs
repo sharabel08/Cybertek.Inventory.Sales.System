@@ -28,7 +28,7 @@ namespace Cybertek.MVC.Helper
         public async Task<AddEditCategoryViewModel> GetAddEditCategoryViewModel(Guid catId)
         {
             var model = new AddEditCategoryViewModel();
-            await _uow.Categories.GetAllAsync(w => w.CategoryId == catId);
+            model.Category = await _uow.Categories.GetAsync(w => w.CategoryId == catId);
             return model;
         }
 

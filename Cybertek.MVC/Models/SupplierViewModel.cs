@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Cybertek.Entities.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cybertek.MVC.Models
 {
     public class SupplierViewModel
     {
+        public string SearchText { get; set; }
+        public List<SupplierEntity> Suppliers { get; set; }
     }
 }

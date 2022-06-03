@@ -2,39 +2,42 @@
 @model CategoryViewModel
 
 <head>
-
+   
 </head>
 <body>
-
+    <h1>Category</h1>
+    <div class="btn-light">
+        @Html.ActionLink("+Add", "AddEditCategory", "Category", new { })
+    </div>
+   
     <table class="table table-sm">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Category Id</th>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>twitter</td>
-            </tr>
+            @for (var i = 0; i <= Model.Categories.Count - 1; i++)
+            {
+                <tr>                
+                    <td>@Html.HiddenFor(m => m.Categories[i].CategoryId)</td>
+                    <td>@Html.ValueFor(m => m.Categories[i].CategoryName)</td>
+                    <td>@Html.ValueFor(m => m.Categories[i].CategoryCode)</td>
+                    <td>@Html.ValueFor(m => m.Categories[i].Description)</td>
+                    <td>@Html.ValueFor(m => m.Categories[i].Active)</td>
+                    <td>@Html.ActionLink("Edit", "AddEditCategory", "Category", new { @catId = Model.Categories[i].CategoryId})</td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteCategory", "Category", new { @catId = Model.Categories[i].CategoryId},
+                       new { onclick = "return confirm('Do you really want to delete this record ' + '?')" })
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
-
 </body>
  
