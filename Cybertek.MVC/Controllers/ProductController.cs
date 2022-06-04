@@ -28,10 +28,7 @@ namespace Cybertek.MVC.Controllers
         public async Task<IActionResult> AddEditProduct(Guid prodId)
         {
             AddEditProductViewModel model = new AddEditProductViewModel();
-            if (prodId != Guid.Empty)
-            {
-                model = await _productHelper.GetAddEditProductViewModel(prodId);
-            }
+            model = await _productHelper.GetAddEditProductViewModel(prodId);
             return View(model);
         }
 

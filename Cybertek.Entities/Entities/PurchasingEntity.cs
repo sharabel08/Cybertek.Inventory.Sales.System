@@ -11,7 +11,11 @@ namespace Cybertek.Entities.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public Guid PurchasingId { get; set; }
-        
+
+        [StringLength(100)]
+        [Required]
+        public string DRNo { get; set; }
+
         [StringLength(100)]
         [Required]
         public string CategoryName { get; set; }
@@ -20,7 +24,7 @@ namespace Cybertek.Entities.Entities
         [Required]
         public string ProductName { get; set; }
 
-        [StringLength(100)]
+        
         [Required]
         public DateTime DatePurchased { get; set; }
 
@@ -30,5 +34,11 @@ namespace Cybertek.Entities.Entities
         
         [Required]
         public int Quantity { get; set; }
+        [Required]
+        public double Price { get; set; }
+        [Required]
+        public double Total { get; set; }
+        [StringLength(200)]
+        public string Notes { get; set; }
     }
 }

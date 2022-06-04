@@ -1,0 +1,49 @@
+﻿@using Cybertek.MVC.Models
+@model ProductViewModel
+
+<head>
+
+</head>
+<body>
+    <h1>Product</h1>
+    <div class="btn-light">
+        @Html.ActionLink("+Add New Product", "AddEditProduct", "Product", new { })
+    </div>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Description</th>
+                <th scope="col">Conditon</th>
+                <th scope="col">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i <= Model.Products.Count - 1; i++)
+            {
+                <tr>
+                    <td>@Html.HiddenFor(m => m.Products[i].ProductId)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].ProductName)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].CategoryName)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].Type)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].Brand)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].Description)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].Condition)</td>
+                    <td>@Html.ValueFor(m => m.Products[i].Active)</td>
+
+
+                    <td>@Html.ActionLink("Edit", "AddEditProduct", "Product", new { @prodId = Model.Products[i].ProductId })</td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteProduct", "Product", new { @prodId = Model.Products[i].ProductId },
+                       new { onclick = "return confirm('Do you really want to delete this record ' + '?')" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

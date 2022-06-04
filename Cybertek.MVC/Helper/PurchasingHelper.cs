@@ -1,7 +1,8 @@
 ﻿using Cybertek.Entities.Entities;
-using Cybertek.Entities.UnitOfWork;
+using Cybertek.Entities.UnitOfWork.Interfaces;
 using Cybertek.MVC.Helper.Interfaces;
 using Cybertek.MVC.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace Cybertek.MVC.Helper
 {
     public class PurchasingHelper : IPurchasingHelper
     {
-        private readonly UnitOfWork _uow;
+        private readonly IUnitOfWork _uow;
 
-        public PurchasingHelper(UnitOfWork uow)
+        public PurchasingHelper(IUnitOfWork uow)
         {
             _uow = uow;
         }
@@ -27,7 +28,41 @@ namespace Cybertek.MVC.Helper
         public async Task<AddEditPurchasingViewModel> GetAddEditPurchasingViewModel(Guid purchId)
         {
             var model = new AddEditPurchasingViewModel();
-            model.Purchasing = await _uow.Purchases.GetAsync(w => w.PurchasingId == purchId);
+            
+            if(purchId != Guid.Empty)
+            {
+                model.Purchasing = await _uow.Purchases.GetAsync(w => w.PurchasingId == purchId);
+            }
+
+            var categories = await _uow.Categories.GetAllAsync();
+            model.Categories = new List<SelectListItem>();
+
+            foreach (var cat in categories)
+            {
+                var listitem = new SelectListItem();
+                listitem.Text = cat.CategoryName;
+                model.Categories.Add(listitem);
+            }
+            
+            var product = await _uow.Products.GetAllAsync();
+            model.Products = new List<SelectListItem>();
+
+            foreach (var prod in product)
+            {
+                var listitem = new SelectListItem();
+                listitem.Text = prod.ProductName;
+                model.Products.Add(listitem);
+            }
+
+            var supplier = await _uow.Suppliers.GetAllAsync();
+            model.Suppliers = new List<SelectListItem>();
+
+            foreach (var sup in supplier)
+            {
+                var listitem = new SelectListItem();
+                listitem.Text = sup.SupplierName;
+                model.Suppliers.Add(listitem);
+            }
             return model;
         }
 

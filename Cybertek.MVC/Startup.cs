@@ -25,6 +25,9 @@ namespace Cybertek.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICategoryHelper, CategoryHelper>();
+            services.AddScoped<IProductHelper, ProductHelper>();
+            services.AddScoped<IPurchasingHelper, PurchasingHelper>();
+            services.AddScoped<ISupplierHelper, SupplierHelper>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

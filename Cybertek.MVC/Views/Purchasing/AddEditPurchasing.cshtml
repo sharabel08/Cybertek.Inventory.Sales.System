@@ -1,0 +1,57 @@
+﻿@using Cybertek.MVC.Models
+@model AddEditPurchasingViewModel
+
+<head>
+
+</head>
+<body>
+    @using (Html.BeginForm("SavePurchasing", "Purchasing", FormMethod.Post))
+
+    {
+        @Html.HiddenFor(m => m.Purchasing.PurchasingId)
+        <div>
+            <label for="catname">DRNo</label>
+            @Html.TextBoxFor(m => m.Purchasing.DRNo, null, new { })
+
+            @*dropdownn*@
+
+            <label for="catname">Category Name</label>
+            @Html.DropDownListFor(m => m.Purchasing.CategoryName, Model.Categories, null, new { })
+        </div>
+        <div>
+            @*dropdownn*@
+            <label for="catname">Product Name</label>
+            @Html.DropDownListFor(m => m.Purchasing.ProductName, Model.Products, null, new { })
+
+            <label for="catname">Date Purchased</label>
+            @Html.TextBoxFor(m => m.Purchasing.DatePurchased, null, new { })
+        </div>
+        <div>
+            @*dropdownn*@
+            <label for="catname">Supplier Name</label>
+            @Html.DropDownListFor(m => m.Purchasing.SupplierName, Model.Suppliers, null, new { })
+
+            <label for="catname">Quantity</label>
+            @Html.TextBoxFor(m => m.Purchasing.Quantity, null, new { })
+        </div>
+        <div>
+            <label for="catname">Price</label>
+            @Html.TextBoxFor(m => m.Purchasing.Price, null, new { })
+
+        <label for="catname">Total</label>
+            @Html.TextBoxFor(m => m.Purchasing.Total, null, new { })
+        </div>
+        <div>
+            <label for="catname">Notes</label>
+            @Html.TextBoxFor(m => m.Purchasing.Notes, null, new { })
+           
+        </div>
+
+
+        <input type="submit" value="Save" class="btn-danger" />
+
+        <div class="btn btn-light">
+            @Html.ActionLink("Cancel", "Category", "Category")
+        </div>
+    }
+</body>

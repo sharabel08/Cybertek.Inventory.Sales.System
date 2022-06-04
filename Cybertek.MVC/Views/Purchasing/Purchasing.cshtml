@@ -1,0 +1,51 @@
+﻿@using Cybertek.MVC.Models
+@model PurchasingViewModel
+
+<head>
+
+</head>
+<body>
+    <h1>Purchasing</h1>
+    <div class="btn-light">
+        @Html.ActionLink("+Add New Purchase", "AddEditPurchasing", "Purchasing", new { })
+    </div>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">DR</th>
+                <th scope="col">Cat Name</th>
+                <th scope="col">Prod Name</th>
+                <th scope="col">Date Purchased</th>
+                <th scope="col">Sup Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i <= Model.Purchasings.Count - 1; i++)
+            {
+            <tr>
+
+                <td>@Html.HiddenFor(m => m.Purchasings[i].PurchasingId)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].DRNo)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].CategoryName)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].ProductName)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].DatePurchased)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].SupplierName)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].Quantity)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].Price)</td>
+                <td>@Html.ValueFor(m => m.Purchasings[i].Total)</td>
+
+                <td>@Html.ActionLink("Edit", "AddEditPurchasing", "Purchasing", new { @purchId = Model.Purchasings[i].PurchasingId })</td>
+                <td>
+                    @Html.ActionLink("Delete", "DeletePurchasing", "Purchasing", new { @purchId = Model.Purchasings[i].PurchasingId },
+                   new { onclick = "return confirm('Do you really want to delete this record ' + '?')" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>

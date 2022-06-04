@@ -1,0 +1,52 @@
+﻿@using Cybertek.MVC.Models
+@model SupplierViewModel
+
+<head>
+
+</head>
+<body>
+    <h1>Supplier</h1>
+    <div class="btn-light">
+        @Html.ActionLink("+Add New Supplier", "AddEditSupplier", "Supplier", new { })
+    </div>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Supplier Code</th>
+                <th scope="col">Supplier Name</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Address</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i <= Model.Suppliers.Count - 1; i++) 
+            {
+                <tr>
+                    <td>@Html.HiddenFor(m => m.Suppliers[i].SupplierId)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].SupplierCode)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].SupplierName)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].Owner)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].ContactPerson)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].ContactNumber)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].EmailAddress)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].Address)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].Notes)</td>
+                    <td>@Html.ValueFor(m => m.Suppliers[i].Active)</td>
+
+                    <td>@Html.ActionLink("Edit", "AddEditSupplier", "Supplier", new { @supId = Model.Suppliers[i].SupplierId })</td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteSupplier", "Supplier", new { @supId = Model.Suppliers[i].SupplierId },
+                       new { onclick = "return confirm('Do you really want to delete this record ' + '?')" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

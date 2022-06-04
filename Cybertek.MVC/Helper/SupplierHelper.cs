@@ -1,5 +1,6 @@
 ﻿using Cybertek.Entities.Entities;
 using Cybertek.Entities.UnitOfWork;
+using Cybertek.Entities.UnitOfWork.Interfaces;
 using Cybertek.MVC.Helper.Interfaces;
 using Cybertek.MVC.Models;
 using System;
@@ -11,9 +12,9 @@ namespace Cybertek.MVC.Helper
 {
     public class SupplierHelper : ISupplierHelper
     {
-        private readonly UnitOfWork _uow;
+        private readonly IUnitOfWork _uow;
 
-        public SupplierHelper(UnitOfWork uow)
+        public SupplierHelper(IUnitOfWork uow)
         {
             _uow = uow;
         }

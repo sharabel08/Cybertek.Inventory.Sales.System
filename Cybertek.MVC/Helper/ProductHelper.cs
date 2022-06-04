@@ -1,7 +1,8 @@
 ﻿using Cybertek.Entities.Entities;
-using Cybertek.Entities.UnitOfWork;
+using Cybertek.Entities.UnitOfWork.Interfaces;
 using Cybertek.MVC.Helper.Interfaces;
 using Cybertek.MVC.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,13 @@ namespace Cybertek.MVC.Helper
 {
     public class ProductHelper : IProductHelper
     {
-        private readonly UnitOfWork _uow;
+        private readonly IUnitOfWork _uow;
 
-        public ProductHelper(UnitOfWork uow)
+        public ProductHelper(IUnitOfWork uow)
         {
             _uow = uow;
         }
+
         public async Task DeleteProduct(Guid prodId)
         {
             var entity = await _uow.Products.GetAsync(prodId);
@@ -27,7 +29,25 @@ namespace Cybertek.MVC.Helper
         public async Task<AddEditProductViewModel> GetAddEditProductViewModel(Guid prodId)
         {
             var model = new AddEditProductViewModel();
-            model.Product = await _uow.Products.GetAsync(w => w.ProductId == prodId);
+
+            if(prodId != Guid.Empty)
+            {
+                model.Product = await _uow.Products.GetAsync(w => w.ProductId == prodId);
+            }
+
+            var categories = await _uow.Categories.GetAllAsync();
+            model.Categories = new List<SelectListItem>();
+
+            foreach(var cat in categories)
+            {
+                var listitem = new SelectListItem();
+               // listitem.Value = cat.CategoryId.ToString();
+                listitem.Text = cat.CategoryName;
+
+                model.Categories.Add(listitem);
+            }
+
+            //model.Product = await _uow.Products.GetAsync(w => w.ProductId == prodId);
             return model;
         }
 
