@@ -2,42 +2,58 @@
 @model AddEditProductViewModel
 
 <head>
-
+    <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
-    @using (Html.BeginForm("SaveProduct", "Product", FormMethod.Post))
+    <form class="form-group">
 
-    {
-        @Html.HiddenFor(m => m.Product.ProductId)
-        <div>
-            <label for="catname">Product Name</label>
-            @Html.TextBoxFor(m => m.Product.ProductName, null, new { })
+        @using (Html.BeginForm("SaveProduct", "Product", FormMethod.Post))
 
-            <label for="catname">Category Name</label>
-            @Html.DropDownListFor(m => m.Product.CategoryName, Model.Categories, null, new { })
-        </div>
-        <div>
-            <label for="catname">Type</label>
-            @Html.TextBoxFor(m => m.Product.Type, null, new { })
+        {
+            <ul>
+                @Html.HiddenFor(m => m.Product.ProductId)
+                <li>
+                    <label for="catname">Product Name</label>
+                    @Html.TextBoxFor(m => m.Product.ProductName, null, new { @class = "control-label col-md-8" })
+                </li>
+           
+                <li>
+                    <label for="catname">Category Name</label>
+                    @Html.DropDownListFor(m => m.Product.CategoryName, Model.Categories, null, new { @class = "control-label col-md-8" })
+                </li>
+           
+                <li>
+                    <label for="catname">Type</label>
+                    @Html.TextBoxFor(m => m.Product.Type, null, new { @class = "control-label col-md-8" })
+                </li>
+            
+                <li>
+                    <label for="catname">Brand</label>
+                    @Html.TextBoxFor(m => m.Product.Brand, null, new { @class = "control-label col-md-8" })
+                </li>
+            
+                <li>
+                    <label for="catname">Description</label>
+                    @Html.TextBoxFor(m => m.Product.Description, null, new { @class = "control-label col-md-8" })
+                </li>
+            
+                <li>
+                    <label for="catname">Condition</label>
+                    @Html.TextBoxFor(m => m.Product.Condition, null, new { @class = "control-label col-md-8" })
+                </li>
+           
+                <li>
+                    <label for="catname">Active</label>
+                    @Html.TextBoxFor(m => m.Product.Active, null, new { @class = "control-label col-md-8" })
+                </li>
+            
+                <input type="submit" value="Save" class="btn btn-danger" />
 
-        <label for="catname">Brand</label>
-            @Html.TextBoxFor(m => m.Product.Brand, null, new { })
-        </div>
-        <div>
-            <label for="catname">Description</label>
-            @Html.TextBoxFor(m => m.Product.Description, null, new { })
-
-        <label for="catname">Condition</label>
-            @Html.TextBoxFor(m => m.Product.Condition, null, new { })
-
-            <label for="catname">Active</label>
-            @Html.TextBoxFor(m => m.Product.Active, null, new { })
-        </div>
-
-        <input type="submit" value="Save" class="btn-danger" />
-
-        <div class="btn btn-light">
-            @Html.ActionLink("Cancel", "Product", "Product")
-        </div>
-    }
+                <div class="btn btn-light">
+                    @Html.ActionLink("Cancel", "Product", "Product")
+                </div>
+            </ul>
+         }
+      
+    </form>
 </body>

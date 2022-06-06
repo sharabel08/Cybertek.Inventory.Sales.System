@@ -2,32 +2,40 @@
 @model AddEditCategoryViewModel
 
 <head>
-
+  <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
-    @using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
+    <form class="form-group">
+        @using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
+        {
+            <ul>
+                @Html.HiddenFor(m => m.Category.CategoryId)
 
-    {
-        @Html.HiddenFor(m => m.Category.CategoryId)
-        <div>
-            <label for="catname">Category Name</label>
-            @Html.TextBoxFor(m => m.Category.CategoryName, null, new { })
+                <li>
+                    <label for="catname">Category Name</label>
+                    @Html.TextBoxFor(m => m.Category.CategoryName, null, new {@class = "control-label col-md-8" })
+                    
+                </li>
+                <li>
+                    <label for="catname">Category Code</label>
+                    @Html.TextBoxFor(m => m.Category.CategoryCode, null, new { @class = "control-label col-md-8" })
 
-            <label for="catname">Category Code</label>
-            @Html.TextBoxFor(m => m.Category.CategoryCode, null, new { })
-        </div>
-        <div>
-            <label for="catname">Description</label>
-            @Html.TextBoxFor(m => m.Category.Description, null, new { })
+                </li>
+                <li>
+                    <label for="catname">Description</label>
+                    @Html.TextBoxFor(m => m.Category.Description, null, new { @class = "control-label col-md-8" })
+                </li>
+                <li>
+                    <label for="catname">Active</label>
+                    @Html.TextBoxFor(m => m.Category.Active, null, new { @class = "control-label col-md-8" })
+                </li>
+         
+                    <input type="submit" value="Save" class="btn btn-danger" />
 
-            <label for="catname">Active</label>
-            @Html.TextBoxFor(m => m.Category.Active, null, new { })
-        </div>  
-        
-        <input type="submit" value="Save" class="btn-danger" />
-
-        <div class="btn btn-light">
-            @Html.ActionLink("Cancel", "Category", "Category")
-        </div>
-     }
+                    <div class="btn btn-light">
+                        @Html.ActionLink("Cancel", "Category", "Category")
+                    </div>                    
+            </ul>
+         }
+    </form> 
 </body>

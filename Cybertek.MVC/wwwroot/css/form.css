@@ -1,0 +1,40 @@
+﻿
+body {
+    background-image: url('../img/vinicious.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+}
+.form-group {
+    max-width: 450px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px auto;
+    border: 6px solid #305A72;
+    background-color:gray;
+    opacity:1;
+   
+}
+
+.form-group ul li {
+    display: block;
+    margin-bottom: 15px;
+    min-height: 35px;
+    font-weight: 200;
+    color: white;
+    
+}
+.control-label {
+    float: right;
+}
+
+.label {
+    font: Trebuchet MS;
+}
+
+
+
+
