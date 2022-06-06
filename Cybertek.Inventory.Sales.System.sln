@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertek.Entities", "Cybertek.Entities\Cybertek.Entities.csproj", "{57621484-7523-4B4B-B223-11DB6D4576E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertek.Entities", "Cybertek.Entities\Cybertek.Entities.csproj", "{57621484-7523-4B4B-B223-11DB6D4576E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertek.MVC", "Cybertek.MVC\Cybertek.MVC.csproj", "{9CA247C0-077E-4C2C-A50D-63DE40A657E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertek.MVC", "Cybertek.MVC\Cybertek.MVC.csproj", "{9CA247C0-077E-4C2C-A50D-63DE40A657E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertek.Auth", "Cybertek.Auth\Cybertek.Auth.csproj", "{4AF692D6-7C03-4A36-81C4-60C9863411CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cybertek.Auth", "Cybertek.Auth\Cybertek.Auth.csproj", "{4AF692D6-7C03-4A36-81C4-60C9863411CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybertek.Api", "Cybertek.Api\Cybertek.Api.csproj", "{A7CC3871-9020-41B1-8561-F2F4A02A97BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4AF692D6-7C03-4A36-81C4-60C9863411CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF692D6-7C03-4A36-81C4-60C9863411CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF692D6-7C03-4A36-81C4-60C9863411CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CC3871-9020-41B1-8561-F2F4A02A97BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CC3871-9020-41B1-8561-F2F4A02A97BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CC3871-9020-41B1-8561-F2F4A02A97BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CC3871-9020-41B1-8561-F2F4A02A97BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
