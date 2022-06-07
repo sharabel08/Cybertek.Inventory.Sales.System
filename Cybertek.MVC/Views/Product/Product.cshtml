@@ -2,12 +2,12 @@
 @model ProductViewModel
 
 <head>
-
+    <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
     <h1>Product</h1>
-    <div class="btn-light">
-        @Html.ActionLink("+Add New Product", "AddEditProduct", "Product", new { })
+    <div class="butt">
+        @Html.ActionLink("Add New Product", "AddEditProduct", "Product", new { })
     </div>
 
     <table class="table table-sm">

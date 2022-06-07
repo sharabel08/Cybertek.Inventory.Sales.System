@@ -5,62 +5,56 @@
     <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
-    <form class="form-group">
-        @using (Html.BeginForm("SavePurchasing", "Purchasing", FormMethod.Post))
-        {
-            <ul>
-                @Html.HiddenFor(m => m.Purchasing.PurchasingId)
-                <li>
-                    <label for="catname">DRNo</label>
-                    @Html.TextBoxFor(m => m.Purchasing.DRNo, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Category Name</label>
-                    @Html.DropDownListFor(m => m.Purchasing.CategoryName, Model.Categories, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Product Name</label>
-                    @Html.DropDownListFor(m => m.Purchasing.ProductName, Model.Products, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Date Purchased</label>
-                    @Html.TextBoxFor(m => m.Purchasing.DatePurchased, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Supplier Name</label>
-                    @Html.DropDownListFor(m => m.Purchasing.SupplierName, Model.Suppliers, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Quantity</label>
-                    @Html.TextBoxFor(m => m.Purchasing.Quantity, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Price</label>
-                    @Html.TextBoxFor(m => m.Purchasing.Price, null, new { @class = "control-label col-md-8" })
-                </li>
-           
-                <li>
-                    <label for="catname">Total</label>
-                    @Html.TextBoxFor(m => m.Purchasing.Total, null, new { @class = "control-label col-md-8" })
-                </li>
-           
-                <li>
-                    <label for="catname">Notes</label>
-                    @Html.TextBoxFor(m => m.Purchasing.Notes, null, new { @class = "control-label col-md-8" })
-                </li>   
+    <h2>Add new Purchase</h2>
+    @using (Html.BeginForm("SavePurchasing", "Purchasing", FormMethod.Post))
+    {
+<div class="form-group">
+    @Html.HiddenFor(m => m.Purchasing.PurchasingId)
 
-                <input type="submit" value="Save" class="btn btn-danger" />
-
-                <div class="btn btn-light">
-                    @Html.ActionLink("Cancel", "Purchasing", "Purchasing")
-                </div>
-            </ul>
-        }
-    </form>
+            <div>
+                <label>DRNo</label>
+                @Html.TextBoxFor(m => m.Purchasing.DRNo, null, new { @class = "control-label col-md-12" })
+            </div>
+    
+            <div>
+                <label>Category Name</label>
+                @Html.DropDownListFor(m => m.Purchasing.CategoryName, Model.Categories, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Product Name</label>
+                @Html.DropDownListFor(m => m.Purchasing.ProductName, Model.Products, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Date Purchased</label>
+                @Html.TextBoxFor(m => m.Purchasing.DatePurchased, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Supplier Name</label>
+                @Html.DropDownListFor(m => m.Purchasing.SupplierName, Model.Suppliers, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Quantity</label>
+                @Html.TextBoxFor(m => m.Purchasing.Quantity, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Price</label>
+                @Html.TextBoxFor(m => m.Purchasing.Price, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Total</label>
+                @Html.TextBoxFor(m => m.Purchasing.Total, null, new { @class = "control-label col-md-12" })
+            </div>
+            <div>
+                <label for="catname">Notes</label>
+                @Html.TextBoxFor(m => m.Purchasing.Notes, null, new { @class = "control-label col-md-12" })
+            </div>
+    
+</div>
+        <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-danger col-md-2" />
+            <div class="btn btn-light col-md-2">
+                @Html.ActionLink("Cancel", "Purchasing", "Purchasing")
+            </div>
+        </div>
+    }
 </body>

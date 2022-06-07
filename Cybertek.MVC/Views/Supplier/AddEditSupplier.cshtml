@@ -5,65 +5,57 @@
     <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
-    <form class="form-group">
-        @using (Html.BeginForm("SaveSupplier", "Supplier", FormMethod.Post))
+    <h2>Add new Supplier</h2>
+    @using (Html.BeginForm("SaveSupplier", "Supplier", FormMethod.Post))
 
-        {
-            <ul>
-                @Html.HiddenFor(m => m.Supplier.SupplierId)
-                <li>
-                    <label for="catname">Supplier Code</label>
-                    @Html.TextBoxFor(m => m.Supplier.SupplierCode, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Supplier Name</label>
-                    @Html.TextBoxFor(m => m.Supplier.SupplierName, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Owner</label>
-                    @Html.TextBoxFor(m => m.Supplier.Owner, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Contact Person</label>
-                    @Html.TextBoxFor(m => m.Supplier.ContactPerson, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Contact Number</label>
-                    @Html.TextBoxFor(m => m.Supplier.ContactNumber, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Email Address</label>
-                    @Html.TextBoxFor(m => m.Supplier.EmailAddress, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Address</label>
-                    @Html.TextBoxFor(m => m.Supplier.Address, null, new { @class = "control-label col-md-8" })
-                </li>
-           
-                <li>
-                    <label for="catname">Notes</label>
-                    @Html.TextBoxFor(m => m.Supplier.Notes, null, new { @class = "control-label col-md-8" })
-                </li>
-            
-                <li>
-                    <label for="catname">Active</label>
-                    @Html.TextBoxFor(m => m.Supplier.Active, null, new { @class = "control-label col-md-8" })
-                </li>
-            
+    {
+<div class="form-group">
+    @Html.HiddenFor(m => m.Supplier.SupplierId)
+    <div>
+        <label for="catname">Supplier Code</label>
+        @Html.TextBoxFor(m => m.Supplier.SupplierCode, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Supplier Name</label>
+        @Html.TextBoxFor(m => m.Supplier.SupplierName, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Owner</label>
+        @Html.TextBoxFor(m => m.Supplier.Owner, null, new { @class = "control-label col-md-12" })
+    </div>
+   
+    <div>
+        <label for="catname">Contact Person</label>
+        @Html.TextBoxFor(m => m.Supplier.ContactPerson, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Contact Number</label>
+        @Html.TextBoxFor(m => m.Supplier.ContactNumber, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Email Address</label>
+        @Html.TextBoxFor(m => m.Supplier.EmailAddress, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Address</label>
+        @Html.TextBoxFor(m => m.Supplier.Address, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Notes</label>
+        @Html.TextBoxFor(m => m.Supplier.Notes, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label for="catname">Active</label>
+        @Html.TextBoxFor(m => m.Supplier.Active, null, new { @class = "control-label col-md-12" })
+    </div>
+    
+</div>
+        <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-danger col-md-2" />
+            <div class="btn btn-light col-md-2">
+                @Html.ActionLink("Cancel", "Supplier", "Supplier")
+            </div>
+        </div>
 
-
-                <input type="submit" value="Save" class="btn btn-danger" />
-
-                <div class="btn btn-light">
-                    @Html.ActionLink("Cancel", "Supplier", "Supplier")
-                </div>
-            </ul>
-        }
-    </form>
+    }
 </body>

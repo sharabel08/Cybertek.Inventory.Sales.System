@@ -5,37 +5,42 @@
   <link rel="stylesheet" href="~/css/form.css">
 </head>
 <body>
-    <form class="form-group">
-        @using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
+    <h2>Add new Category</h2>
+         @using (Html.BeginForm("SaveCategory", "Category", FormMethod.Post))
         {
-            <ul>
+          
+            <div class="form-group">
                 @Html.HiddenFor(m => m.Category.CategoryId)
-
-                <li>
-                    <label for="catname">Category Name</label>
-                    @Html.TextBoxFor(m => m.Category.CategoryName, null, new {@class = "control-label col-md-8" })
-                    
-                </li>
-                <li>
-                    <label for="catname">Category Code</label>
-                    @Html.TextBoxFor(m => m.Category.CategoryCode, null, new { @class = "control-label col-md-8" })
-
-                </li>
-                <li>
-                    <label for="catname">Description</label>
-                    @Html.TextBoxFor(m => m.Category.Description, null, new { @class = "control-label col-md-8" })
-                </li>
-                <li>
-                    <label for="catname">Active</label>
-                    @Html.TextBoxFor(m => m.Category.Active, null, new { @class = "control-label col-md-8" })
-                </li>
-         
-                    <input type="submit" value="Save" class="btn btn-danger" />
-
-                    <div class="btn btn-light">
+               
+                <div>
+                    <label>Category Name</label>
+                    @Html.TextBoxFor(m => m.Category.CategoryName, null, new { @class = "control-label col-md-12" })
+                </div>
+                   
+                <div>
+                    <label>Category Code</label>
+                    @Html.TextBoxFor(m => m.Category.CategoryCode, null, new { @class = "control-label col-md-12" })
+                </div>
+                   
+                <div>
+                    <label>Description</label>
+                    @Html.TextBoxFor(m => m.Category.Description, null, new { @class = "control-label col-md-12" })
+                </div>
+                  
+                <div>
+                    <label>Active</label>
+                    @Html.TextBoxFor(m => m.Category.Active, null, new { @class = "control-label col-md-12" })
+                </div>
+                   
+                
+            </div>
+            <div class="text-center">
+                    <input type="submit" value="Save" class="btn btn-danger col-md-2" />
+                    <div class="btn btn-light col-md-2">
                         @Html.ActionLink("Cancel", "Category", "Category")
-                    </div>                    
-            </ul>
+                    </div>
+            </div>                  
+         
          }
-    </form> 
+   
 </body>
