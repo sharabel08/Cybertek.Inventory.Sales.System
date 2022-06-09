@@ -9,6 +9,9 @@ namespace Cybertek.Entities.UnitOfWork.Interfaces
         IProductEntityRepository Products { get; }
         IPurchasingEntityRepository Purchases { get; }
         ISupplierEntityRepository Suppliers { get; }
+        ISalesEntityRepository Sales { get; }
+
+       
 
         int CompleteUOW();
     }

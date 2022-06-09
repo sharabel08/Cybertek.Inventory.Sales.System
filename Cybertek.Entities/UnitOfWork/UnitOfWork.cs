@@ -16,12 +16,14 @@ namespace Cybertek.Entities.UnitOfWork
             Products = new ProductEntityRepository(_context);
             Suppliers = new SupplierEntityRepository(_context);
             Purchases = new PurchasingEntityRepository(_context);
+            Sales = new SalesEntityRepository(_context);
         }
        
         public ICategoryEntityRepository Categories { get; private set; }
         public IProductEntityRepository Products { get; private set; }
         public ISupplierEntityRepository Suppliers { get; private set; }
         public IPurchasingEntityRepository Purchases { get; private set; }
+        public ISalesEntityRepository Sales { get; private set; }
         public int CompleteUOW()
         {
             return _context.SaveChanges();

@@ -7,29 +7,31 @@
 <body>
     <h1 class=text-center>CYBERTEK Inventory and Sales System</h1>
 
-    <div class="row">
-        <div class="column">
+    <div class="cover">
+        <div class="box">
             <a href="@Url.Action("Category", "Category", null)">
-                <img src="~/img/category.jpg" alt="category" style="width: 250px" />
-                <span>CATEGORY</span>
+            <img src="~/img/category.jpg" />
+            <h3>category</h3>
             </a>
-            <a href="@Url.Action("Product", "Product", null)">
-                <img src="~/img/product.jpg" alt="product" style="width: 250px" />
-                <span>PRODUCT</span>
-            </a>
-            
         </div>
-        <div class="column">
-            <a href="@Url.Action("Purchasing","Purchasing",null)">
-                <img src="~/img/purchasing.jpg" alt="purchasing" style="width: 250px" />
-                <span>PURCHASING</span>
-            </a>
-            <a href="@Url.Action("Supplier","Supplier", null)">
-                <img src="~/img/supplier.jpg" alt="supplier" style="width: 250px" />
-                <span>SUPPLIER</span>
-            </a>
-            
-        </div>       
+        <div class="box">
+            <a href="@Url.Action("Product", "Product", null)">
+                <img src="~/img/product.jpg" />
+                <h3>product</h3>
+                </a>
+        </div>
+        <div class="box">
+            <a href="@Url.Action("Purchasing", "Purchasing", null)">
+                <img src="~/img/purchasing.jpg" />
+                <h3>purchasing</h3>
+                </a>
+</div>
+        <div class="box">
+            <a href="@Url.Action("Supplier", "Supplier", null)">
+                <img src="~/img/supplier.jpg" />
+                <h3>supplier</h3>
+                </a>
+        </div>
     </div>
 </body>
 

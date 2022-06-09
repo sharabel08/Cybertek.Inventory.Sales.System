@@ -14,5 +14,6 @@ namespace Cybertek.Entities
         internal DbSet<SupplierEntity> Suppliers { get; set; }
         internal DbSet<PurchasingEntity> Purchasings { get; set; }
         internal DbSet<CategoryEntity> Categories { get; set; }
+        internal DbSet<SalesEntity> Sales { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace Cybertek.MVC
             services.AddScoped<IProductHelper, ProductHelper>();
             services.AddScoped<IPurchasingHelper, PurchasingHelper>();
             services.AddScoped<ISupplierHelper, SupplierHelper>();
+            services.AddScoped<ISalesEntityHelper, SalesEntityHelper>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
