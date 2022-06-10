@@ -1,0 +1,60 @@
+﻿@using Cybertek.MVC.Models
+@model AddEditSalesViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/form.css">
+</head>
+<body>
+    <h2>Add new Sale</h2>
+    @using (Html.BeginForm("SaveSale", "Sale", FormMethod.Post))
+    {
+
+<div class="form-group">
+    @Html.HiddenFor(m => m.Sale.SalesId)
+    <div>
+        <label>Purchase Date</label>
+        @Html.TextBoxFor(m => m.Sale.DateOfPurchase, null, new { @class = "control-label col-md-12" })
+    </div>
+
+    <div>
+        <label>Customer Name</label>
+        @Html.TextBoxFor(m => m.Sale.CustomerName, null, new { @class = "control-label col-md-12" })
+    </div>
+
+    <div>
+        <label>Category Name</label>
+        @Html.TextBoxFor(m => m.Sale.CategoryName, null, new { @class = "control-label col-md-12" })
+    </div>
+
+    <div>
+        <label>Description</label>
+        @Html.TextBoxFor(m => m.Sale.ProductName, null, new { @class = "control-label col-md-12" })
+    </div>
+
+    <div>
+        <label>Amount</label>
+        @Html.TextBoxFor(m => m.Sale.Amount, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label>Quantity</label>
+        @Html.TextBoxFor(m => m.Sale.Quantity, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label>TotalAmount</label>
+        @Html.TextBoxFor(m => m.Sale.TotalAmount, null, new { @class = "control-label col-md-12" })
+    </div>
+    <div>
+        <label>Active</label>
+        @Html.TextBoxFor(m => m.Sale.Active, null, new { @class = "control-label col-md-12" })
+    </div>
+</div>
+        <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-danger col-md-2" />
+            <div class="btn btn-light col-md-2">
+                @Html.ActionLink("Cancel", "Sale", "Sale")
+            </div>
+        </div>
+
+    }
+
+</body>

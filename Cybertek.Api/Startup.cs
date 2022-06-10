@@ -38,6 +38,7 @@ namespace Cybertek.Api
             services.AddScoped<IProductHelper, ProductHelper>();
             services.AddScoped<IPurchasingHelper, PurchasingHelper>();
             services.AddScoped<ISupplierHelper, SupplierHelper>();
+            
 
             services.AddDbContext<CybertekDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("CybertekDbConnection")));
 

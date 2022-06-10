@@ -10,8 +10,8 @@ namespace Cybertek.MVC.Helper.Interfaces
     {
         public Task<IEnumerable<SalesEntity>> GetSales(bool active);
         public SalesViewModel GetSalesViewModel(string searchText, bool active);
-        public Task SaveCategory(AddEditSalesViewModel model);
+        public Task SaveSale(AddEditSalesViewModel model);
         public Task<AddEditSalesViewModel> GetAddEditSalesViewModel(Guid salesId);
-        public Task DeleteSales(Guid salesId);
+        public Task DeleteSale(Guid salesId);
     }
 }

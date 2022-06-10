@@ -12,6 +12,9 @@ namespace Cybertek.Entities.Entities
         [Required]
         public Guid SalesId { get; set; }
 
+        [Required, Column(TypeName = "Date"), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime DateOfPurchase { get; set; }
+
         [StringLength(100)]
         [Required]
         public string  CustomerName { get; set; }
@@ -31,7 +34,7 @@ namespace Cybertek.Entities.Entities
         public int Quantity { get; set; }
         
         [Required]
-        public decimal TotalAmount { get; set; }
+        public float TotalAmount { get; set; }
 
         [Required]
         public bool Active { get; set; }

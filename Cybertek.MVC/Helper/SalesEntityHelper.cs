@@ -17,7 +17,7 @@ namespace Cybertek.MVC.Helper
         {
             _uow = uow;
         }
-        public async Task DeleteSales(Guid salesId)
+        public async Task DeleteSale(Guid salesId)
         {
             var entity = await _uow.Sales.GetAsync(salesId);
             _uow.Sales.Remove(entity);
@@ -40,7 +40,7 @@ namespace Cybertek.MVC.Helper
         {
             var model = new SalesViewModel();
             model.SearchText = searchText ?? "";
-            model.Sales = _uow.Sales.GetAllAsync(w => w.Active == active && w.SalesId
+            model.Sales = _uow.Sales.GetAllAsync(w => w.Active == active && w.CustomerName
             .Contains(model.SearchText)).Result.ToList();
             return model;
         }
@@ -53,7 +53,7 @@ namespace Cybertek.MVC.Helper
             }
             else
             {
-                _uow.Sales.Update(model.sale);
+                _uow.Sales.Update(model.Sale);
             }
             _uow.CompleteUOW();
         }
